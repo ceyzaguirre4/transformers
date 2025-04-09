@@ -1028,6 +1028,7 @@ if __name__ == "__main__":
                 break
 
     available_artifacts = retrieve_available_artifacts()
+    print(available_artifacts)
 
     modeling_categories = [
         "PyTorch",
@@ -1046,6 +1047,8 @@ if __name__ == "__main__":
     if job_name == "run_trainer_and_fsdp_gpu":
         report_name_prefix = job_name
 
+    print(report_name_prefix)
+
     # This dict will contain all the information relative to each model:
     # - Failures: the total, as well as the number of failures per-category defined above
     # - Success: total
@@ -1062,6 +1065,8 @@ if __name__ == "__main__":
         for model in models
         if f"{report_name_prefix}_{model}_test_reports" in available_artifacts
     }
+
+    print(model_results)
 
     unclassified_model_failures = []
 
@@ -1122,6 +1127,8 @@ if __name__ == "__main__":
                         else:
                             model_results[model]["failed"]["Unclassified"][artifact_path["gpu"]] += 1
                             unclassified_model_failures.append(line)
+
+    print(model_results)
 
     # Additional runs
     additional_files = {
