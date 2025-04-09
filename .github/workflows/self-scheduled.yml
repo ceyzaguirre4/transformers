@@ -77,7 +77,7 @@ jobs:
         run: pip freeze
 
       - id: set-matrix
-        if: ${{ inputs.job == 'run_models_gpu' }}
+        if: contains(fromJSON('["run_models_gpu", "run_trainer_and_fsdp_gpu"]'), inputs.job)
         name: Identify models to test
         working-directory: /transformers/tests
         run: |
