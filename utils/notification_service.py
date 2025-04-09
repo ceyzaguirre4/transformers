@@ -1006,6 +1006,7 @@ if __name__ == "__main__":
         models = []
     else:
         model_list_as_str = arguments[0]
+        print(model_list_as_str)
         try:
             folder_slices = ast.literal_eval(model_list_as_str)
             # Need to change from elements like `models/bert` to `models_bert` (the ones used as artifact names).

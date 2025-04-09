@@ -85,7 +85,7 @@ jobs:
             echo "folder_slices=$(python3 ../utils/split_model_tests.py --num_splits ${{ env.NUM_SLICES }})" >> $GITHUB_OUTPUT
             echo "slice_ids=$(python3 -c 'd = list(range(${{ env.NUM_SLICES }})); print(d)')" >> $GITHUB_OUTPUT
           elif [ "${{ inputs.job }}" = "run_trainer_and_fsdp_gpu" ]; then
-            echo 'folder_slices=[["trainer"], ["fsdp"]]' >> $GITHUB_OUTPUT
+            echo "folder_slices=[['trainer'], ['fsdp']]" >> $GITHUB_OUTPUT
             echo "slice_ids=[0, 1]" >> $GITHUB_OUTPUT
           fi
 
